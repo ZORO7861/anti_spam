@@ -1,7 +1,9 @@
 # spr/vars.py
+import sqlite3
+
+conn = sqlite3.connect("spr.db", check_same_thread=False)
 
 BOT_USERNAME = "WH_catcher_bot"
-conn = None
 session = None
 arq = None
 BOT_TOKEN = "7901528943:AAGLFs5u3hEkJ0Pw2ex2brqRrjtqkbfIEX4"
