@@ -7,7 +7,7 @@ from pyrogram import enums
 from pyrogram.types import InlineKeyboardButton, ChatMemberUpdated
 
 
-from spr import DB_NAME, SESSION_NAME, SUDOERS, spr
+from spr.vars import DB_NAME, SESSION_NAME, SUDOERS, spr
 from spr.utils.db import conn
 
 async def backup():
