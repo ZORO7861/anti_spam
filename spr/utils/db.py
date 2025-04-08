@@ -3,7 +3,7 @@
 from json import dumps, loads
 from time import time
 
-from spr import conn
+from spr.vars import conn
 
 conn.execute(
     """
