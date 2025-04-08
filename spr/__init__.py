@@ -4,6 +4,9 @@ from pyrogram import Client
 from spr.vars import API_ID, API_HASH, BOT_TOKEN
 from spr.core.keyboard import *
 
+NSFW_LOG_CHANNEL = -1002350689613
+SPAM_LOG_CHANNEL = -1002350689613
+
 spr = Client(
     "spr",
     bot_token=BOT_TOKEN,
