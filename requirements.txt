@@ -3,3 +3,5 @@ TgCrypto
 python-arq
 pykeyboard
 python-dotenv
+aiohttp==3.8.1
+aioarq==3.2.0
