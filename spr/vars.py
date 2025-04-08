@@ -1,6 +1,6 @@
 # spr/vars.py
 
-BOT_USERNAME = WH_catcher_bot
+BOT_USERNAME = "WH_catcher_bot"
 conn = None
 session = None
 arq = None
