@@ -3,4 +3,3 @@ TgCrypto
 python-arq
 pykeyboard
 python-dotenv
-git+https://github.com/Yokesh28/aioarq.git
