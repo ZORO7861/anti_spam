@@ -3,6 +3,12 @@ from time import ctime
 from pyrogram.errors import (ChatAdminRequired, ChatWriteForbidden,
                              UserAdminInvalid)
 from pyrogram.types import Message
+from aioarq import ARQ
+
+ARQ_API_URL = "https://arq.hamker.dev"
+ARQ_API_KEY = "KIAWNM-MBDAEI-FCVDQI-OPLUBA-ARQ"
+
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY)
 
 from spr import NSFW_LOG_CHANNEL, SPAM_LOG_CHANNEL, spr
 from spr.core import ikb
