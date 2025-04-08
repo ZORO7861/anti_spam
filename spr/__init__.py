@@ -1,7 +1,7 @@
 # spr/__init__.py
 
 from pyrogram import Client
-from config.ev import API_ID, API_HASH, BOT_TOKEN
+from spr.vars import API_ID, API_HASH, BOT_TOKEN
 from spr.core.keyboard import *
 
 spr = Client(
