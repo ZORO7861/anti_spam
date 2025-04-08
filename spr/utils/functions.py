@@ -1,20 +1,13 @@
 from time import ctime
-
-from pyrogram.errors import (ChatAdminRequired, ChatWriteForbidden,
-                             UserAdminInvalid)
+from pyrogram.errors import ChatAdminRequired, ChatWriteForbidden, UserAdminInvalid
 from pyrogram.types import Message
-from aioarq import ARQ
-
-ARQ_API_URL = "https://arq.hamker.dev"
-ARQ_API_KEY = "KIAWNM-MBDAEI-FCVDQI-OPLUBA-ARQ"
-
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY)
 
 from spr import NSFW_LOG_CHANNEL, SPAM_LOG_CHANNEL, spr
 from spr.core import ikb
-from spr.utils.db import (get_blacklist_event, get_nsfw_count,
-                          get_reputation, get_user_trust,
-                          increment_nsfw_count, is_user_blacklisted)
+from spr.utils.db import (
+    get_blacklist_event, get_nsfw_count, get_reputation, get_user_trust,
+    increment_nsfw_count, is_user_blacklisted
+)
 
 
 async def get_user_info(message):
@@ -57,10 +50,7 @@ async def delete_get_info(message: Message):
     return await get_user_info(message)
 
 
-async def delete_nsfw_notify(
-    message: Message,
-    result,
-):
+async def delete_nsfw_notify(message: Message, result):
     await message.copy(
         NSFW_LOG_CHANNEL,
         reply_markup=ikb(
@@ -84,10 +74,7 @@ async def delete_nsfw_notify(
     increment_nsfw_count(message.from_user.id)
 
 
-async def delete_spam_notify(
-    message: Message,
-    spam_probability: float,
-):
+async def delete_spam_notify(message: Message, spam_probability: float):
     info = await delete_get_info(message)
     if not info:
         return
@@ -123,16 +110,12 @@ __Message has been deleted__
     )
 
     keyb = ikb({"View Message": m.link})
-    await spr.send_message(
-        message.chat.id, text=msg, reply_markup=keyb
-    )
+    await spr.send_message(message.chat.id, text=msg, reply_markup=keyb)
 
 
 async def kick_user_notify(message: Message):
     try:
-        await spr.ban_chat_member(
-            message.chat.id, message.from_user.id
-        )
+        await spr.ban_chat_member(message.chat.id, message.from_user.id)
     except (ChatAdminRequired, UserAdminInvalid):
         try:
             return await message.reply_text(
