@@ -1,7 +1,13 @@
+import os
 from pyrogram import Client
-from sample_config import *
 from spr.core.keyboard import *
 
+# Heroku environment se credentials load karna
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+# Pyrogram bot client setup
 spr = Client(
     "spr",
     bot_token=BOT_TOKEN,
