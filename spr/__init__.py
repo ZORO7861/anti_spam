@@ -1,15 +1,9 @@
-import os
+# spr/__init__.py
+
 from pyrogram import Client
+from config.ev import API_ID, API_HASH, BOT_TOKEN
 from spr.core.keyboard import *
 
-# Heroku environment se credentials load karna
-API_ID = int(os.getenv("API_ID"))
-API_HASH = os.getenv("API_HASH")
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-BOT_USERNAME = os.getenv("BOT_USERNAME")
-BOT_USERNAME = "@WH_catcher_bot"
-
-# Pyrogram bot client setup
 spr = Client(
     "spr",
     bot_token=BOT_TOKEN,
