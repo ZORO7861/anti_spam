@@ -44,7 +44,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 
 
 @spr.on_message(
-    filters.user(SUDOERS)
+    filters.user(list(SUDOERS))
     & ~filters.forwarded
     & ~filters.via_bot
     & filters.command("eval"),
@@ -126,7 +126,7 @@ async def runtime_func_cq(_, cq):
 
 
 @spr.on_message(
-    filters.user(SUDOERS)
+    filters.user(list(SUDOERS))
     & ~filters.forwarded
     & ~filters.via_bot
     & filters.command("sh"),
