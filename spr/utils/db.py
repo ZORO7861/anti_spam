@@ -426,16 +426,31 @@ def is_nsfw_enabled(chat_id: int) -> bool:
     CHECK IF NSFW DETECTION IS ENABLED IN A CHAT
     """
     c = conn.cursor()
-    return bool(
-        c.execute(
-            """
-            SELECT nsfw_enabled
-            FROM chats
-            WHERE chat_id=?
-            """,
-            (chat_id,),
-        ).fetchone()[0]
-    )
+    result = c.execute(
+        """
+        SELECT nsfw_enabled
+        FROM chats
+        WHERE chat_id=?
+        """,
+        (chat_id,),
+    ).fetchone()
+    return bool(result and result[0])
+
+
+def is_spam_enabled(chat_id: int) -> bool:
+    """
+    CHECK IF SPAM PROTECTION IS ENABLED IN A CHAT
+    """
+    c = conn.cursor()
+    result = c.execute(
+        """
+        SELECT spam_enabled
+        FROM chats
+        WHERE chat_id=?
+        """,
+        (chat_id,),
+    ).fetchone()
+    return bool(result and result[0])
 
 
 def enable_nsfw(chat_id: int):
