@@ -8,7 +8,10 @@ session = None
 ARQ = "KIAWNM-MBDAEI-FCVDQI-OPLUBA-ARQ"
 BOT_TOKEN = "7901528943:AAGLFs5u3hEkJ0Pw2ex2brqRrjtqkbfIEX4"
 
-SUDOERS = list(map(int, getenv("SUDOERS", "8019277081").split(",")))
+# vars.py
+
+# ✅ Even better: set of integers
+SUDOERS = {8019277081, 7623534652}
 
 NSFW_LOG_CHANNEL = -1001470187101
 SPAM_LOG_CHANNEL = -1001554591017
