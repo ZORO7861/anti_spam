@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
-from spr import SUDOERS, arq, spr
+from spr import SUDOERS, spr
 from spr.utils.db import conn
 
 __MODULE__ = "Devs"
@@ -27,7 +27,6 @@ __HELP__ = """
 
 conn = conn
 p = print
-arq = arq
 
 
 async def aexec(code, client, message):
