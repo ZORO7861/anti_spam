@@ -1,5 +1,5 @@
 import sqlite3
-import os  # <-- ADD THIS
+from os import getenv
 
 conn = sqlite3.connect("spr.db", check_same_thread=False)
 
@@ -8,8 +8,7 @@ session = None
 ARQ = "KIAWNM-MBDAEI-FCVDQI-OPLUBA-ARQ"
 BOT_TOKEN = "7901528943:AAGLFs5u3hEkJ0Pw2ex2brqRrjtqkbfIEX4"
 
-# Fix this line
-SUDOERS = list(map(int, os.getenv("SUDOERS", "8019277081").split(",")))
+SUDOERS = list(map(int, getenv("SUDOERS", "8019277081").split(",")))
 
 NSFW_LOG_CHANNEL = -1001470187101
 SPAM_LOG_CHANNEL = -1001554591017
