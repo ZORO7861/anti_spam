@@ -1,15 +1,23 @@
-import asyncio
 from aiohttp import ClientSession
 from sqlite3 import connect
-  # this is the class
 from spr.vars import ARQ_API_URL, ARQ_API_KEY
-from ARQ import ARQ
 from spr.utils.db import DB_NAME
 
-async def create_arq():
-    session = ClientSession()
-    arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
-    return arq, session
-
-arq, session = asyncio.run(create_arq())
+session = ClientSession()
 conn = connect(DB_NAME)
+
+# NSFW Checker
+async def check_nsfw(image_url: str):
+    async with session.post(f"{ARQ_API_URL}/nsfw", json={
+        "image": image_url,
+        "key": ARQ_API_KEY
+    }) as resp:
+        return await resp.json()
+
+# Spam Checker
+async def check_spam(text: str):
+    async with session.post(f"{ARQ_API_URL}/spam", json={
+        "text": text,
+        "key": ARQ_API_KEY
+    }) as resp:
+        return await resp.json()
