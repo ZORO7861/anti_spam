@@ -1,7 +1,8 @@
 import asyncio
 from aiohttp import ClientSession
 from sqlite3 import connect
-from spr.vars import ARQ, ARQ_API_URL, ARQ_API_KEY
+  # this is the class
+from spr.vars import ARQ_API_URL, ARQ_API_KEY, ARQ
 from spr.utils.db import DB_NAME
 
 async def create_arq():
