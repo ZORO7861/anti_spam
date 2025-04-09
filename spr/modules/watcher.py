@@ -3,7 +3,7 @@ import os
 from pyrogram import filters
 from pyrogram.types import Message
 
-from spr import SUDOERS, arq, spr
+from spr import SUDOERS, spr
 from spr.utils.db import (add_chat, add_user, chat_exists,
                           is_chat_blacklisted, is_nsfw_downvoted,
                           is_nsfw_enabled, is_spam_enabled,
