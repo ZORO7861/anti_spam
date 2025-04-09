@@ -3,4 +3,3 @@ TgCrypto
 pykeyboard
 python-dotenv
 aiohttp
-git+https://github.com/thehamkercat/ARQ
