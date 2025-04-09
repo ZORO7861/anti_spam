@@ -11,7 +11,7 @@ from spr.core import ikb
 from spr.modules import MODULES
 from spr.utils.misc import once_a_day, once_a_minute, paginate_modules
 import spr.vars as vars  # importing our variable file
-from spr.core.boot import conn, session  # wherever conn/session is created
+from spr.core.boot import conn  # wherever conn/session is created
 
 HELPABLE = {}
 
