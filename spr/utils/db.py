@@ -5,6 +5,8 @@ from time import time
 
 from spr.vars import conn
 
+DB_NAME = "spr_database"
+
 conn.execute(
     """
         CREATE
