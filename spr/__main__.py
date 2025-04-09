@@ -10,8 +10,9 @@ from spr import spr
 from spr.core import ikb
 from spr.modules import MODULES
 from spr.utils.misc import once_a_day, once_a_minute, paginate_modules
-import spr.vars as vars  # importing our variable file
-from spr.core.boot import conn  # wherever conn/session is created
+from spr.utils.session_utils import get_session  # NEW IMPORT
+import spr.vars as vars
+from spr.core.boot import conn
 
 HELPABLE = {}
 
@@ -20,7 +21,7 @@ async def main():
     me = await spr.get_me()
     vars.BOT_USERNAME = me.username
     vars.conn = conn
-    vars.session = session
+    vars.session = await get_session()  # SETTING SESSION
 
     # Load all the modules
     for module in MODULES:
@@ -128,7 +129,7 @@ async def help_button(client, query: CallbackQuery):
 
 @spr.on_message(filters.command("runs"), group=3)
 async def runs_func(_, message: Message):
-    await message.reply("What am i? Rose?")
+    await message.reply("What am I? Rose?")
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
