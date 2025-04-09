@@ -9,8 +9,6 @@ from spr.utils.db import (disable_nsfw, disable_spam, enable_nsfw,
                           is_spam_enabled)
 from spr.utils.misc import admins, get_file_id
 
- 
-
 __MODULE__ = "Manage"
 __HELP__ = """
 /anti_nsfw [ENABLE|DISABLE] - Enable or disable NSFW Detection.
@@ -19,7 +17,6 @@ __HELP__ = """
 /nsfw_scan - Classify a media.
 /spam_scan - Get Spam predictions of replied message.
 """
-
 
 @spr.on_message(
     filters.command("anti_nsfw") & ~filters.private, group=3
@@ -38,8 +35,7 @@ async def nsfw_toggle_func(_, message: Message):
             return await message.reply_text(
                 "You don't have enough permissions"
             )
-    status = message.text.split(None, 1)[1].strip()
-    status = status.lower()
+    status = message.text.split(None, 1)[1].strip().lower()
     chat_id = message.chat.id
     if status == "enable":
         if is_nsfw_enabled(chat_id):
@@ -55,7 +51,6 @@ async def nsfw_toggle_func(_, message: Message):
         await message.reply_text(
             "Unknown Suffix, Use /anti_nsfw [ENABLE|DISABLE]"
         )
-
 
 @spr.on_message(
     filters.command("anti_spam") & ~filters.private, group=3
@@ -74,8 +69,7 @@ async def spam_toggle_func(_, message: Message):
             return await message.reply_text(
                 "You don't have enough permissions"
             )
-    status = message.text.split(None, 1)[1].strip()
-    status = status.lower()
+    status = message.text.split(None, 1)[1].strip().lower()
     chat_id = message.chat.id
     if status == "enable":
         if is_spam_enabled(chat_id):
@@ -91,7 +85,6 @@ async def spam_toggle_func(_, message: Message):
         await message.reply_text(
             "Unknown Suffix, Use /anti_spam [ENABLE|DISABLE]"
         )
-
 
 @spr.on_message(filters.command("nsfw_scan"), group=3)
 async def nsfw_scan_command(_, message: Message):
@@ -132,7 +125,6 @@ async def nsfw_scan_command(_, message: Message):
 **NSFW:** `{results.is_nsfw}`
 """
     )
-
 
 @spr.on_message(filters.command("spam_scan"), group=3)
 async def scanNLP(_, message: Message):
