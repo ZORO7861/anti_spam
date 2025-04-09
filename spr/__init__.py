@@ -7,6 +7,8 @@ from spr.core.keyboard import *
 NSFW_LOG_CHANNEL = -1002350689613
 SPAM_LOG_CHANNEL = -1002350689613
 
+SUDOERS = "5909658683 8019277081"
+
 spr = Client(
     "spr",
     bot_token=BOT_TOKEN,
