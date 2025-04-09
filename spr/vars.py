@@ -5,7 +5,7 @@ conn = sqlite3.connect("spr.db", check_same_thread=False)
 
 BOT_USERNAME = "WH_catcher_bot"
 session = None
-arq = "KIAWNM-MBDAEI-FCVDQI-OPLUBA-ARQ"
+ARQ = "KIAWNM-MBDAEI-FCVDQI-OPLUBA-ARQ"
 BOT_TOKEN = "7901528943:AAGLFs5u3hEkJ0Pw2ex2brqRrjtqkbfIEX4"
 SUDOERS = "5909658683 8019277081"
 NSFW_LOG_CHANNEL=-1001470187101
