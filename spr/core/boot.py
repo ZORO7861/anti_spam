@@ -1,23 +1,10 @@
-from aiohttp import ClientSession
 from sqlite3 import connect
-from spr.vars import ARQ_API_URL, ARQ_API_KEY
 from spr.utils.db import DB_NAME
 
-session = ClientSession()
+# Database connection (safe in sync)
 conn = connect(DB_NAME)
 
-# NSFW Checker
-async def check_nsfw(image_url: str):
-    async with session.post(f"{ARQ_API_URL}/nsfw", json={
-        "image": image_url,
-        "key": ARQ_API_KEY
-    }) as resp:
-        return await resp.json()
+# ClientSession aur ARQ ko yaha se hata diya gaya hai
+# Sab ARQ-related cheeze ab 'check_nsfw()', 'check_spam()', etc. wrappers me handle hongi
 
-# Spam Checker
-async def check_spam(text: str):
-    async with session.post(f"{ARQ_API_URL}/spam", json={
-        "text": text,
-        "key": ARQ_API_KEY
-    }) as resp:
-        return await resp.json()
+# NOTE: Use 'get_session()' from 'session_utils.py' wherever needed in async context
