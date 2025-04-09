@@ -15,3 +15,4 @@ API_ID = '23012237'
 API_HASH = 'c90dc14145de6fe292d1f7034861993a'
 DB_NAME = "spr_database"
 SESSION_NAME = "spr_session"
+ARQ_API_URL = 'https://arq.hamker.dev'
