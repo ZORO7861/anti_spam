@@ -8,10 +8,9 @@ from spr.utils.db import (add_chat, add_user, blacklist_chat,
                           is_chat_blacklisted, is_user_blacklisted,
                           user_exists, whitelist_chat, whitelist_user)
 
-
-@spr.on_message(
-    filters.command("blacklist") & filters.user(SUDOERS), group=3
-)
+@spr.on_message(filters.command("blacklist") & filters.user(list(SUDOERS)), group=3)
+async def blacklist_func(_, message):
+    ...
 async def blacklist_func(_, message: Message):
     err = "Enter a user/chat's id and give a reason."
     if len(message.command) < 3:
@@ -66,9 +65,10 @@ async def blacklist_func(_, message: Message):
     await spr.send_message(SPAM_LOG_CHANNEL, text=msg)
 
 
-@spr.on_message(
-    filters.command("whitelist") & filters.user(SUDOERS), group=3
-)
+@spr.on_message(filters.command("blacklist") & filters.user(list(SUDOERS)), group=3)
+async def blacklist_func(_, message):
+    ...
+  
 async def whitelist_func(_, message: Message):
     err = "Enter a user/chat's id."
     if len(message.command) != 2:
