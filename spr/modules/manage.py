@@ -3,13 +3,13 @@ from os import remove
 from pyrogram import filters
 from pyrogram.types import Message
 
-from spr import spr
+from spr import spr, SUDOERS
 from spr.utils.db import (disable_nsfw, disable_spam, enable_nsfw,
                           enable_spam, is_nsfw_enabled,
                           is_spam_enabled)
 from spr.utils.misc import admins, get_file_id
 
-SUDOERS = '8019277081'
+ 
 
 __MODULE__ = "Manage"
 __HELP__ = """
