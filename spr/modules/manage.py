@@ -20,7 +20,7 @@ __HELP__ = """
 """
 
 # Replace with your custom NSFW API
-API_URL = "https://your-api.com/nsfw"
+API_URL = "KIAWNM-MBDAEI-FCVDQI-OPLUBA-ARQ"
 
 # NSFW scan function using aiohttp
 async def custom_nsfw_scan(file_path):
